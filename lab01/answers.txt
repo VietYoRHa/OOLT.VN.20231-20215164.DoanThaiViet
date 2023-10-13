@@ -1,0 +1,13 @@
+6.1) ChoosingOption
+* Chương trình hiển thị hộp thoại và có 3 lựa chọn: Yes, No, Cancel. Kết quả lựa chọn của người dùng sẽ được lưu vào biến option:
+    - Yes:              option = 0
+    - No:               option = 1
+    - Cancel:           option = 2
+    - Đóng hộp thoại:   option = -1
+Câu lệnh tiếp theo hiển thị hộp thoại kèm kiểm tra kết quả lựa chọn của người dùng: ở đây chỉ kiểm tra nếu người dùng chọn Yes thì sẽ hiển thị "Yes", các trường hợp còn lại thì hiển thị "No"
+Vì vậy trong trường hợp người dùng lựa chọn Cancel, No hoặc đóng hộp thoại thì đều sẽ hiển thị là "No".
+* Để tuỳ chỉnh hộp thoại ta sử dụng phương thức JOptionPane.showOptionDialog trong đó:
+    - Object[] options: chứa các tuỳ chọn muốn hiển thị (ở đây là "I do" và "I don't)
+    - JOptionPane.YES_NO_OPTION: sử dụng kiểu hộp thoại hai tuỳ chọn Yes/No
+    - JOptionPane.QUESTION_MESSAGE: kiểu biểu tượng câu hỏi
+    - options[0]: thiết lập tuỳ chọn mặc định ban đầu là "I do"
