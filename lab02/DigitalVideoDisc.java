@@ -37,6 +37,8 @@ public class DigitalVideoDisc {
         this(title, category, director, cost);
         this.length = length;
     }
-    
-    
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }
