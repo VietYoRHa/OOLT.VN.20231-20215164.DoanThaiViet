@@ -1,3 +1,7 @@
+package hust.soict.hedspi.aims.cart;
+
+import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +40,7 @@ public class Cart {
 
     public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
         addDigitalVideoDisc(dvd1);
-        addDigitalVideoDisc(dvd2); 
+        addDigitalVideoDisc(dvd2);
     }
 
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {

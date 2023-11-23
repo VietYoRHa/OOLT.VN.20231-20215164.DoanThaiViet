@@ -1,3 +1,7 @@
+package hust.soict.hedspi.test.disc;
+
+import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+
 public class TestPassingParameter {
     public static void main(String[] args) {
         //TODO Auto-generated method stub
@@ -31,3 +35,4 @@ public class TestPassingParameter {
         dvd = new DigitalVideoDisc(oldTitle);
     }
 }
+
