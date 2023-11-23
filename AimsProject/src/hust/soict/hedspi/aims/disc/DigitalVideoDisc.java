@@ -50,4 +50,17 @@ public class DigitalVideoDisc {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    @Override
+    public String toString(){
+        return this.id + ". DVD - " + this.title + " - " + this.category + " - " + this.director + " - " + this.length + ": " + this.cost + "$";
+    }
+
+    public boolean isMatch (int id){
+        return this.id == id;
+    }
+
+    public boolean isMatch (String title){
+        return this.title != null && this.title.equalsIgnoreCase(title);
+    }
 }

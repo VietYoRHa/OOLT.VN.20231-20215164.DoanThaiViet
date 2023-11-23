@@ -75,4 +75,32 @@ public class Cart {
             System.out.println("-----------------------------------------\n");
         }
     }
+
+    public void print(){
+        for (DigitalVideoDisc disc : itemsOrdered){
+            System.out.println(disc.toString());
+        }
+    }
+
+    public void serachByID(int id){
+        boolean flag = false;
+        for (DigitalVideoDisc disc : itemsOrdered){
+            if (disc.isMatch(id)){
+                System.out.println(disc.toString());
+                flag = true;
+            }
+        }
+        if (!flag) System.out.println("No match found !");
+    }
+
+    public void serachByTitle(String title){
+        boolean flag = false;
+        for (DigitalVideoDisc disc : itemsOrdered){
+            if (disc.isMatch(title)){
+                System.out.println(disc.toString());
+                flag = true;
+            }
+        }
+        if (!flag) System.out.println("No match found !");
+    }
 }
