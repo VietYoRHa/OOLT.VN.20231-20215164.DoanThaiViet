@@ -9,12 +9,12 @@ public class Aims {
         Cart anOrder = new Cart();
 
         //Create new dvd objects and add them to the cart
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
-        DigitalVideoDisc dvd4 = new DigitalVideoDisc("Turbo", "Animation", "David Soren", 96, 12.29f);
-        DigitalVideoDisc dvd5 = new DigitalVideoDisc("Kung Fu Panda", "Animation", "John Stevenson", 92, 14.99f);
-        DigitalVideoDisc dvd6 = new DigitalVideoDisc("Rurouni Kenshin", "Action", "Keishi Otomo", 134, 29.23f);
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc(1, "The Lion King", "Animation", 19.95f, 87, "Roger Allers");
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc(2, "Star Wars", "Science Fiction", 24.95f, 87, "George Lucas");
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc(3, "Aladin", "Animation", 18.99f);
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc(4, "Turbo", "Animation", 12.29f, 96, "David Soren");
+        DigitalVideoDisc dvd5 = new DigitalVideoDisc(5, "Kung Fu Panda", "Animation", 14.99f, 92, "John Stevenson");
+        DigitalVideoDisc dvd6 = new DigitalVideoDisc(6, "Rurouni Kenshin", "Action", 29.23f, 134, "Keishi Otomo");
 
         DigitalVideoDisc dvdList[] = new DigitalVideoDisc[2];
         dvdList[0] = dvd4;

@@ -1,37 +1,23 @@
 package hust.soict.hedspi.aims.media;
 
-public class DigitalVideoDisc extends Media{
-    private String director;
-    private int length;
+public class DigitalVideoDisc extends Disc{
 
-    public String getDirector() {
-        return director;
+    public DigitalVideoDisc(int id, String title) {
+        super(id, title);
     }
-    public int getLength() {
-        return length;
+    public DigitalVideoDisc(int id, String title, String category, float cost) {
+        super(id, title, category, cost);
     }
-
-    public DigitalVideoDisc(String title) {
-        super();
-        setTitle(title);
+    public DigitalVideoDisc(int id, String title, String category, float cost, int length) {
+        super(id, title, category, cost, length);
     }
-    public DigitalVideoDisc(String title, String category, float cost) {
-        this(title);
-        setCategory(category);
-        setCost(cost);
-    }
-    public DigitalVideoDisc(String title, String category, String director, float cost) {
-        this(title, category, cost);
-        this.director = director;
-    }
-    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-        this(title, category, director, cost);
-        this.length = length;
+    public DigitalVideoDisc(int id, String title, String category, float cost, int length, String director) {
+        super(id, title, category, cost, length, director);
     }
 
     @Override
     public String toString(){
-        return this.getId() + ". DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + this.director + " - " + this.length + ": " + this.getCost() + "$";
+        return this.getId() + ". DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getDirector() + " - " + this.getLength() + ": " + this.getCost() + "$";
     }
 
     public boolean isMatch (int id){

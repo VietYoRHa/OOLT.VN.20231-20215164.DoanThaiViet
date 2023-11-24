@@ -6,19 +6,16 @@ import java.util.List;
 public class Book extends Media {
     private List<String> authors = new ArrayList<String>();
 
-    public Book(String title) {
-        super();
-        setTitle(title);
+    public Book(int id, String title) {
+        super(id, title);
     }
 
-    public Book(String title, String category, float cost) {
-        this(title);
-        setCategory(category);
-        setCost(cost);
+    public Book(int id, String title, String category, float cost) {
+        super(id, title, category, cost);
     }
 
-    public Book(String title, String category, float cost, List<String> authors) {
-        this(title, category, cost);
+    public Book(int id, String title, String category, float cost, List<String> authors) {
+        super(id, title, category, cost);
         this.authors = authors;
     }
 
