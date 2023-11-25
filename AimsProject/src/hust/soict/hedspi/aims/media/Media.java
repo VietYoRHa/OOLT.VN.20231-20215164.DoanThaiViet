@@ -6,6 +6,19 @@ public class Media {
     private String title;
     private String category;
     private float cost;
+    private static int nbMedias = 0;
+
+    public Media(String title) {
+        nbMedias++;
+        this.id = nbMedias;
+        this.title = title;
+    }
+
+    public Media(String title, String category, float cost) {
+        this(title);
+        this.category = category;
+        this.cost = cost;
+    }
 
     public int getId() {
         return id;
