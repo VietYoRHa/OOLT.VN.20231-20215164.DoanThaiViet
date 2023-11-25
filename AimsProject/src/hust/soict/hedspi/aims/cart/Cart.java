@@ -1,62 +1,32 @@
 package hust.soict.hedspi.aims.cart;
 
 import hust.soict.hedspi.aims.media.DigitalVideoDisc;
+import hust.soict.hedspi.aims.media.Media;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Cart {
-    public static final int MAX_NUMBERS_ORDERED = 20;
-    private List<DigitalVideoDisc> itemsOrdered = new ArrayList<>();
-    private int qtyOrdered = 0;
+    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
     int sequenceNum;
 
-    public void addDigitalVideoDisc(DigitalVideoDisc disc){
-        if (qtyOrdered < MAX_NUMBERS_ORDERED){
-            itemsOrdered.add(disc);
-            qtyOrdered++;
-            System.out.println("The disc has been added");
+    public void addMedia(Media item){
+        itemsOrdered.add(item);
+        System.out.println("Item has been added !");
+    }
+
+    public void removeMedia(Media item){
+        if(itemsOrdered.contains(item)){
+            itemsOrdered.remove(item);
+            System.out.println("Item has been removed !");
         } else {
-            System.out.println("The cart is almost full");
-        }
-    }
-
-    public void addDigitalVideoDisc(List<DigitalVideoDisc> dvdList) {
-        int spaceLeft = MAX_NUMBERS_ORDERED - qtyOrdered;
-        if (spaceLeft >= dvdList.size()) {
-            itemsOrdered.addAll(dvdList);
-            qtyOrdered += dvdList.size();
-            System.out.println("The discs have been added.");
-        } else {
-            System.out.println("Not enough space in the cart to add all the discs.");
-        }
-    }
-
-    public void addDigitalVideoDisc(DigitalVideoDisc... dvds) {
-        for (DigitalVideoDisc dvd : dvds) {
-            addDigitalVideoDisc(dvd);
-        }
-    }
-
-    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
-        addDigitalVideoDisc(dvd1);
-        addDigitalVideoDisc(dvd2);
-    }
-
-    public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
-        if (itemsOrdered.contains(disc)) {
-            itemsOrdered.remove(disc);
-            qtyOrdered--;
-            System.out.println("The disc has been removed.");
-        } else {
-            System.out.println("The disc is not found in the cart.");
+            System.out.println("Item is not found in the cart !");
         }
     }
 
     public float totalCost() {
         float totalCost = 0.0f;
-        for (DigitalVideoDisc disc : itemsOrdered) {
-            totalCost += disc.getCost();
+        for (Media item : itemsOrdered) {
+            totalCost += item.getCost();
         }
         return totalCost;
     }
@@ -67,8 +37,8 @@ public class Cart {
         } else {
             sequenceNum = 1;
             System.out.println("\nYour Cart:");
-            for (DigitalVideoDisc disc : itemsOrdered) {
-                System.out.format("%-5d %-30s %.2f %n", sequenceNum, disc.getTitle(), disc.getCost());
+            for (Media item : itemsOrdered) {
+                System.out.format("%-5d %-30s %.2f %n", sequenceNum, item.getTitle(), item.getCost());
                 sequenceNum++;
             }
             System.out.format("%-5s %-30s %.2f %n", " ", "Total Cost", totalCost());
@@ -77,16 +47,16 @@ public class Cart {
     }
 
     public void print(){
-        for (DigitalVideoDisc disc : itemsOrdered){
-            System.out.println(disc.toString());
+        for (Media item : itemsOrdered){
+            System.out.println(item.toString());
         }
     }
 
     public void serachByID(int id){
         boolean flag = false;
-        for (DigitalVideoDisc disc : itemsOrdered){
-            if (disc.isMatch(id)){
-                System.out.println(disc.toString());
+        for (Media media : itemsOrdered){
+            if (media.isMatch(id)){
+                System.out.println(media.toString());
                 flag = true;
             }
         }
@@ -95,9 +65,9 @@ public class Cart {
 
     public void serachByTitle(String title){
         boolean flag = false;
-        for (DigitalVideoDisc disc : itemsOrdered){
-            if (disc.isMatch(title)){
-                System.out.println(disc.toString());
+        for (Media media : itemsOrdered){
+            if (media.isMatch(title)){
+                System.out.println(media.toString());
                 flag = true;
             }
         }
