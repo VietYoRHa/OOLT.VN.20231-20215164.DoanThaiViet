@@ -26,12 +26,4 @@ public class DigitalVideoDisc extends Disc implements Playable{
         System.out.println("Director: " + this.getDirector());
         System.out.println("DVD length: " + this.getLength() + " minutes");
     }
-
-    public boolean isMatch (int id){
-        return this.getId() == id;
-    }
-
-    public boolean isMatch (String title){
-        return this.getTitle() != null && this.getTitle().equalsIgnoreCase(title);
-    }
 }

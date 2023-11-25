@@ -16,17 +16,16 @@ public class Aims {
         DigitalVideoDisc dvd5 = new DigitalVideoDisc("Kung Fu Panda", "Animation", 14.99f, 92, "John Stevenson");
         DigitalVideoDisc dvd6 = new DigitalVideoDisc("Rurouni Kenshin", "Action", 29.23f, 134, "Keishi Otomo");
 
-        DigitalVideoDisc dvdList[] = new DigitalVideoDisc[2];
-        dvdList[0] = dvd4;
-        dvdList[1] = dvd5;
-
-        anOrder.addDigitalVideoDisc(dvd1, dvd2, dvd3);
-        anOrder.addDigitalVideoDisc(dvdList);
+        anOrder.addMedia(dvd1);
+        anOrder.addMedia(dvd2);
+        anOrder.addMedia(dvd3);
+        anOrder.addMedia(dvd4);
+        anOrder.addMedia(dvd5);
 
         anOrder.displayCart();
 
-        anOrder.removeDigitalVideoDisc(dvd2);
-        anOrder.removeDigitalVideoDisc(dvd6);
+        anOrder.removeMedia(dvd2);
+        anOrder.removeMedia(dvd6);
 
         anOrder.displayCart();
     }

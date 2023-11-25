@@ -51,4 +51,12 @@ public class Media {
     public void setCost(float cost) {
         this.cost = cost;
     }
+
+    public boolean isMatch (int id){
+        return this.getId() == id;
+    }
+
+    public boolean isMatch (String title){
+        return this.getTitle() != null && this.getTitle().equalsIgnoreCase(title);
+    }
 }
