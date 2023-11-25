@@ -6,14 +6,16 @@ public class Media {
     private String title;
     private String category;
     private float cost;
+    private static int nbMedias = 0;
 
-    public Media(int id, String title) {
-        this.id = id;
+    public Media(String title) {
+        nbMedias++;
+        this.id = nbMedias;
         this.title = title;
     }
 
-    public Media(int id, String title, String category, float cost) {
-        this(id, title);
+    public Media(String title, String category, float cost) {
+        this(title);
         this.category = category;
         this.cost = cost;
     }

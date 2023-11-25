@@ -2,17 +2,17 @@ package hust.soict.hedspi.aims.media;
 
 public class DigitalVideoDisc extends Disc{
 
-    public DigitalVideoDisc(int id, String title) {
-        super(id, title);
+    public DigitalVideoDisc(String title) {
+        super(title);
     }
-    public DigitalVideoDisc(int id, String title, String category, float cost) {
-        super(id, title, category, cost);
+    public DigitalVideoDisc(String title, String category, float cost) {
+        super(title, category, cost);
     }
-    public DigitalVideoDisc(int id, String title, String category, float cost, int length) {
-        super(id, title, category, cost, length);
+    public DigitalVideoDisc(String title, String category, float cost, int length) {
+        super(title, category, cost, length);
     }
-    public DigitalVideoDisc(int id, String title, String category, float cost, int length, String director) {
-        super(id, title, category, cost, length, director);
+    public DigitalVideoDisc(String title, String category, float cost, int length, String director) {
+        super(title, category, cost, length, director);
     }
 
     @Override
