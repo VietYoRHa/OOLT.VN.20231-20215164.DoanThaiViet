@@ -16,21 +16,22 @@ public class StoreTest {
         DigitalVideoDisc dvd6 = new DigitalVideoDisc("Rurouni Kenshin", "Action", 29.23f, 134, "Keishi Otomo");
 
         //Add DVDs to store
-        aStore.addDVD(dvd1);
-        aStore.addDVD(dvd2);
-        aStore.addDVD(dvd3);
-        aStore.addDVD(dvd4);
-        aStore.addDVD(dvd5);
-        aStore.addDVD(dvd6);
+        aStore.addMedia(dvd1);
+        aStore.addMedia(dvd2);
+        aStore.addMedia(dvd3);
+        aStore.addMedia(dvd4);
+        aStore.addMedia(dvd5);
+        aStore.addMedia(dvd6);
+
 
         //Show store items
         aStore.print();
         System.out.print("\n");
 
         //Remove DVDs from store
-        aStore.removeDVD(dvd1);
-        aStore.removeDVD(dvd3);
-        aStore.removeDVD(dvd5);
+        aStore.removeMedia(dvd1);
+        aStore.removeMedia(dvd3);
+        aStore.removeMedia(dvd5);
 
         //Show store items
         aStore.print();
