@@ -59,4 +59,14 @@ public class Media {
     public boolean isMatch (String title){
         return this.getTitle() != null && this.getTitle().equalsIgnoreCase(title);
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Media otherMedia = (Media) obj;
+        return title != null ? title.equals(otherMedia.title) : otherMedia.title == null;
+    }
 }
