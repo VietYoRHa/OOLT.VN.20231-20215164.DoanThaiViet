@@ -1,13 +1,6 @@
-10. Create Constructor method
-- JAVA cho phép làm như vậy, đó goi là kỹ thuật Constructor overloading cho phép chúng ta tạo nhiều hơn một constructor trong cùng một lớp, nhưng mỗi constructor có thể có các tham số khác nhau. Khi sử dụng constructor overloading, ta có thể khởi tạo đối tượng với nhiều cách khác nhau, tùy thuộc vào các tham số được truyền vào.
+4. Update the Cart class and CartTest class
+- Khi viết phương thức toString() cho lớp DigitalVideoDisc thì kiểu dữ liệu trả về nên là String (mục đích để Override phương thức toString() có trong lớp Object)
 
-14. Working with method overloading
-14.1 Overloading by differing types of parameter
-- Trong trường hợp này việc sử dụng varargs parameter sẽ đem lại nhiều lợi ích hơn như:
-	+ Truyền tham số linh hoạt hơn
-	+ Tránh được việc method overloading nhiều
-
-15. Passing parameter
-- JAVA là ngôn ngữ lập trình chỉ cho phép truyền tham số kiểu tham trị (Pass by Value), giá trị bên trong phương thức truyền vào chỉ là một bản sao của giá trị bên ngoài và khi thay đổi giá trị bên trong phương thức thì không ảnh hưởng đến giá trị của biến bên ngoài phương thức.
-- swap(jungleDVD, cinderellaDVD) không hoán đổi title vì khi này ta đang truyền một bản sao của tham chiếu đến các đối tượng, chứ không phải là các đối tượng thực sự. Vì thế việc hoán đổi trong phương thức swap này không ảnh hưởng đến các đối tượng gốc.
-- changeTitle(jungleDVD, cinderellaDVD.getTitle()) có thể thay đổi title của JungleDVD dù ở đây vẫn là truyền tham trị do giá trị của jungleDVD được sao chép qua nhưng bây giờ giá trị của đối tượng chính là địa chỉ đến các thành phần của đối tượng đó nên việc thay đổi này sẽ làm thay đổi cả title của jungleDVD ở ngoài phương thức.
+14. Constructors of whole classes and parent classes
+- Media là lớp tổng hợp của Book và Disc
+- Disc là lớp tổng hợp của DigitalVideoDisc và CompactDisc.
