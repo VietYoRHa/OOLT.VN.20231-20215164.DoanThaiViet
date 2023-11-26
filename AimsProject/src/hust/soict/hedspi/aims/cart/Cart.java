@@ -9,18 +9,18 @@ public class Cart {
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
     int sequenceNum;
 
+    public ArrayList<Media> getItemsOrdered() {
+        return itemsOrdered;
+    }
+
     public void addMedia(Media item){
         itemsOrdered.add(item);
         System.out.println("Item has been added !");
     }
 
     public void removeMedia(Media item){
-        if(itemsOrdered.contains(item)){
-            itemsOrdered.remove(item);
-            System.out.println("Item has been removed !");
-        } else {
-            System.out.println("Item is not found in the cart !");
-        }
+        itemsOrdered.remove(item);
+        System.out.println("Item has been removed !");
     }
 
     public float totalCost() {
@@ -37,12 +37,13 @@ public class Cart {
         } else {
             sequenceNum = 1;
             System.out.println("\nYour Cart:");
+            System.out.format("%-5s %-5s %-30s %s %n", "", "ID", "Title", "Cost");
             for (Media item : itemsOrdered) {
-                System.out.format("%-5d %-30s %.2f %n", sequenceNum, item.getTitle(), item.getCost());
+                System.out.format("%-5d %-5d %-30s %.2f %n", sequenceNum, item.getId(), item.getTitle(), item.getCost());
                 sequenceNum++;
             }
-            System.out.format("%-5s %-30s %.2f %n", " ", "Total Cost", totalCost());
-            System.out.println("-----------------------------------------\n");
+            System.out.format("%-5s %-36s %.2f %n", " ", "Total Cost", totalCost());
+            System.out.println("---------------------------------------------------\n");
         }
     }
 
@@ -80,5 +81,18 @@ public class Cart {
 
     public void sortByCost(){
         Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+    }
+
+    public int getNumberOfItemsInCart(){
+        return itemsOrdered.size();
+    }
+
+    public void orderCart(){
+        if (itemsOrdered.isEmpty())
+            System.out.println("Cannot order because cart is empty.");
+        else {
+            System.out.println("Order is created !");
+            itemsOrdered.clear();
+        }
     }
 }

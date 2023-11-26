@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Store {
     private ArrayList<Media> itemsInStore = new ArrayList<>();
+    private ArrayList<Media> items = new ArrayList<>();
 
     public void addMedia(Media item){
         itemsInStore.add(item);
@@ -19,5 +20,13 @@ public class Store {
         for (Media item : itemsInStore){
             System.out.println(item.toString());
         }
+    }
+
+    public ArrayList<Media> searchInStore(String title){
+        items.clear();
+        for (Media media : itemsInStore){
+            if (media.isMatch(title)) items.add(media);
+        }
+        return items;
     }
 }
