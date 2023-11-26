@@ -1,12 +1,16 @@
 package hust.soict.hedspi.aims.media;
 
 
+import java.util.Comparator;
+
 public class Media {
     private int id;
     private String title;
     private String category;
     private float cost;
     private static int nbMedias = 0;
+    public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
+    public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
 
     public Media(String title) {
         nbMedias++;
