@@ -20,8 +20,14 @@ public class CartTest {
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
         cart.addMedia(dvd3);
 
-        CompactDisc cd1 = new CompactDisc("Rurouni Kenshin Original Soundtrack", "Live Action", 20f, "Naoki Sato");
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc("Kung Fu Panda", "Animation", 18.99f, 92, "John Stevenson");
+        cart.addMedia(dvd4);
+
+        CompactDisc cd1 = new CompactDisc("Rurouni Kenshin Original Soundtrack", "Live Action", 28f, "Naoki Sato");
         cart.addMedia(cd1);
+
+        CompactDisc cd2 = new CompactDisc("Rurouni Kenshin Original Soundtrack", "Anime", 25f, "Noriyuki Asakura");
+        cart.addMedia(cd2);
 
         Book book1 = new Book("The Exorcist", "Novel", 21.68f, "William Peter Blatty");
         cart.addMedia(book1);
@@ -37,5 +43,15 @@ public class CartTest {
         cart.serachByTitle("morbius");
         cart.serachByTitle("rurouni kenshin original soundtrack");
         cart.serachByTitle("the exorcist");
+
+        //Test sortByTitle method
+        System.out.println();
+        cart.sortByTitle();
+        cart.print();
+
+        //Test sortByCost method
+        System.out.println();
+        cart.sortByCost();
+        cart.print();
     }
 }
