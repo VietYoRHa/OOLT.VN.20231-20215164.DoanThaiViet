@@ -4,3 +4,9 @@
 14. Constructors of whole classes and parent classes
 - Media là lớp tổng hợp của Book và Disc
 - Disc là lớp tổng hợp của DigitalVideoDisc và CompactDisc.
+
+17. Sort media in the cart
+- Lớp Media nên triển khai giao diện Comparable
+- Các giá trị trả về của phương thức compareTo() phải nằm trong một phạm vi cụ thể: Thông thường, phương thức compareTo() trả về một số nguyên âm, số nguyên dương hoặc 0.
+- Không, thứ tự sắp xếp được xác định bởi compareTo() chỉ có thể có một quy tắc.
+- Nếu DVD có quy tắc sắp xếp khác với các loại Media khác, ta có thể tạo một lớp mới triển khai giao diện Comparable cho DigitalVideoDisc; trong lớp mới này sẽ có cách triển khai riêng của phương thức compareTo().

@@ -1,0 +1,15 @@
+- Lợi ích của đa hình:
++ Tăng tính linh hoạt trong thiết kế và triển khai chương trình.
++ Cho phép sử dụng lại mã nguồn
++ Giúp quản lý một tập hợp đối tượng có loại khác nhau thông qua một giao diện chung.
++ Giúp mở rộng tính năng của ứng dụng mà không cần sửa đổi quá nhiều mã nguồn đã có.
+
+- Cách kế thừa hỗ trợ trong việc thực hiện đa hình:
++ Cho phép một lớp (lớp con) kế thừa các thuộc tính và phương thức từ lớp khác (lớp cha), từ đó lớp con có thể ghi đè (override) phương thức của lớp cha để thay đổi hoặc mở rộng hành vi.
++ Khi một nhóm các lớp con kế thừa từ cùng một lớp cha hoặc giao diện, chúng có thể được xử lý như một nhóm đồng nhất thông qua một giao diện chung.
++ Một biến của lớp cha có thể tham chiếu đến đối tượng của lớp con, và khi gọi phương thức, hành vi của lớp con sẽ được thực thi. Điều này tạo ra khả năng thực hiện Đa hình.
+
+- Điểm khác nhau giữa kế thừa và đa hình:
++ Kế thừa là cơ chế cho phép lớp con sử dụng các thuộc tính và phương thức của lớp cha, còn đa hình là khả năng hành xử theo nhiều cách của một đối tượng.
++ Việc thực hiện kế thừa xảy ra ở cấp class, còn thực hiện đa hình xảy ra ở cấp method.
++ Kế thừa cung cấp khả năng sử dụng lại code, còn đa hình cho phép gọi các phương thức phù hợp tại thời gian biên dịch và thời gian chạy.
