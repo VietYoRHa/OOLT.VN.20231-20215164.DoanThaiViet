@@ -29,4 +29,8 @@ public class Store {
         }
         return items;
     }
+
+    public ArrayList<Media> getItemsInStore() {
+        return itemsInStore;
+    }
 }
