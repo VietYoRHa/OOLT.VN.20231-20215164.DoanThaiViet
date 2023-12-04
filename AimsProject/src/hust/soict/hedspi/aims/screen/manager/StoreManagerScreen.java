@@ -61,10 +61,10 @@ public class StoreManagerScreen extends JFrame{
             String actionCommand = e.getActionCommand();
 
             switch (actionCommand) {
-//                case "AddBook":
-//                    dispose();
-//                    new AddBookToStoreScreen(StoreManagerScreen.this);
-//                    break;
+                case "AddBook":
+                    dispose();
+                    new AddBookToStoreScreen(StoreManagerScreen.this, store);
+                    break;
                 case "AddCD":
                     dispose();
                     new AddCompactDiscToStoreScreen(StoreManagerScreen.this, store);
