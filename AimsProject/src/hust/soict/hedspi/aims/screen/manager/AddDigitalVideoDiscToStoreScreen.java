@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 
 public class AddDigitalVideoDiscToStoreScreen extends JFrame {
     private Store store;
+    private StoreManagerScreen previousScreen;
     private JTextField tfTitle, tfCategory, tfCost, tfLength, tfDirector;
 
     JPanel createNorth(){
@@ -23,7 +24,17 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
     JMenuBar createMenuBar(){
         JMenu menu = new JMenu("Options");
 
-        menu.add(new JMenuItem("View store"));
+        JMenuItem viewStoreMenuItem = new JMenuItem("View Store");
+        viewStoreMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                previousScreen.setVisible(true);
+                dispose();
+            }
+        });
+
+        menu.add(viewStoreMenuItem);
 
         JMenuBar menuBar = new JMenuBar();
         menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -94,6 +105,9 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
         DigitalVideoDisc dvd = new DigitalVideoDisc(title, category, cost, length, director);
 
         store.addMedia(dvd);
+        previousScreen.mediaInStore.add(dvd);
+        MediaStore cell = new MediaStore(dvd);
+        previousScreen.center.add(cell);
 
         JOptionPane.showMessageDialog(this, "DVD added successfully to the store.");
 
@@ -104,7 +118,8 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
         tfDirector.setText("");
     }
 
-    public AddDigitalVideoDiscToStoreScreen(Store store){
+    public AddDigitalVideoDiscToStoreScreen(StoreManagerScreen previousScreen, Store store){
+        this.previousScreen = previousScreen;
         this.store = store;
 
         Container cp = getContentPane();
@@ -119,8 +134,4 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        Store a = new Store();
-        new AddDigitalVideoDiscToStoreScreen(a);
-    }
 }

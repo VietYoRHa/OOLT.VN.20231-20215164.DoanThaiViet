@@ -8,11 +8,14 @@ import hust.soict.hedspi.aims.store.Store;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class StoreManagerScreen extends JFrame{
     private Store store;
-
+    JPanel center = new JPanel();
+    ArrayList<Media> mediaInStore;
     JPanel createNorth(){
         JPanel north = new JPanel();
         north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
@@ -27,9 +30,22 @@ public class StoreManagerScreen extends JFrame{
         menu.add(new JMenuItem("View store"));
 
         JMenu smUpdateStore = new JMenu("Update Store");
-        smUpdateStore.add(new JMenuItem("Add Book"));
-        smUpdateStore.add(new JMenuItem("Add CD"));
-        smUpdateStore.add(new JMenuItem("Add DVD"));
+
+        JMenuItem menuItemAddBook = new JMenuItem("Add Book");
+        menuItemAddBook.setActionCommand("AddBook");
+        menuItemAddBook.addActionListener(new UpdateStoreActionListener());
+        smUpdateStore.add(menuItemAddBook);
+
+        JMenuItem menuItemAddCD = new JMenuItem("Add CD");
+        menuItemAddCD.setActionCommand("AddCD");
+        menuItemAddCD.addActionListener(new UpdateStoreActionListener());
+        smUpdateStore.add(menuItemAddCD);
+
+        JMenuItem menuItemAddDVD = new JMenuItem("Add DVD");
+        menuItemAddDVD.setActionCommand("AddDVD");
+        menuItemAddDVD.addActionListener(new UpdateStoreActionListener());
+        smUpdateStore.add(menuItemAddDVD);
+
         menu.add(smUpdateStore);
 
         JMenuBar menuBar = new JMenuBar();
@@ -37,6 +53,28 @@ public class StoreManagerScreen extends JFrame{
         menuBar.add(menu);
 
         return menuBar;
+    }
+
+    private class UpdateStoreActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String actionCommand = e.getActionCommand();
+
+            switch (actionCommand) {
+//                case "AddBook":
+//                    dispose();
+//                    new AddBookToStoreScreen(StoreManagerScreen.this);
+//                    break;
+//                case "AddCD":
+//                    dispose();
+//                    new AddCompactDiscToStoreScreen(StoreManagerScreen.this);
+//                    break;
+                case "AddDVD":
+                    dispose();
+                    new AddDigitalVideoDiscToStoreScreen(StoreManagerScreen.this, store);
+                    break;
+            }
+        }
     }
 
     JPanel createHeader(){
@@ -56,10 +94,9 @@ public class StoreManagerScreen extends JFrame{
     }
 
     JPanel createCenter() {
-        JPanel center = new JPanel();
         center.setLayout(new GridLayout(3, 3, 2, 2));
 
-        ArrayList<Media> mediaInStore = store.getItemsInStore();
+        mediaInStore = store.getItemsInStore();
         for (int i = 0; i < mediaInStore.size(); i++){
             MediaStore cell = new MediaStore(mediaInStore.get(i));
             center.add(cell);
@@ -105,11 +142,11 @@ public class StoreManagerScreen extends JFrame{
         aStore.addMedia(dvd5);
         aStore.addMedia(dvd6);
         aStore.addMedia(dvd7);
-        aStore.addMedia(cd1);
-        aStore.addMedia(cd2);
-        aStore.addMedia(book1);
+//        aStore.addMedia(cd1);
+//        aStore.addMedia(cd2);
+//        aStore.addMedia(book1);
 
-        StoreManagerScreen storescreen = new StoreManagerScreen(aStore);
+        new StoreManagerScreen(aStore);
         
     }
 }
