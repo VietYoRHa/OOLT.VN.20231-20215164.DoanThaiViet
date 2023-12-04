@@ -65,10 +65,10 @@ public class StoreManagerScreen extends JFrame{
 //                    dispose();
 //                    new AddBookToStoreScreen(StoreManagerScreen.this);
 //                    break;
-//                case "AddCD":
-//                    dispose();
-//                    new AddCompactDiscToStoreScreen(StoreManagerScreen.this);
-//                    break;
+                case "AddCD":
+                    dispose();
+                    new AddCompactDiscToStoreScreen(StoreManagerScreen.this, store);
+                    break;
                 case "AddDVD":
                     dispose();
                     new AddDigitalVideoDiscToStoreScreen(StoreManagerScreen.this, store);
@@ -136,15 +136,15 @@ public class StoreManagerScreen extends JFrame{
         Book book1 = new Book("The Exorcist", "Novel", 21.68f, "William Peter Blatty");
 
         //Initialize Store
-        aStore.addMedia(dvd1);
-        aStore.addMedia(dvd2);
-        aStore.addMedia(dvd3);
-        aStore.addMedia(dvd5);
+//        aStore.addMedia(dvd1);
+//        aStore.addMedia(dvd2);
+//        aStore.addMedia(dvd3);
+//        aStore.addMedia(dvd5);
         aStore.addMedia(dvd6);
         aStore.addMedia(dvd7);
-//        aStore.addMedia(cd1);
-//        aStore.addMedia(cd2);
-//        aStore.addMedia(book1);
+        aStore.addMedia(cd1);
+        aStore.addMedia(cd2);
+        aStore.addMedia(book1);
 
         new StoreManagerScreen(aStore);
         
