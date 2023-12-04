@@ -1,9 +1,6 @@
 package hust.soict.hedspi.aims.screen.manager;
 
-import hust.soict.hedspi.aims.media.Book;
-import hust.soict.hedspi.aims.media.CompactDisc;
-import hust.soict.hedspi.aims.media.DigitalVideoDisc;
-import hust.soict.hedspi.aims.media.Media;
+import hust.soict.hedspi.aims.media.*;
 import hust.soict.hedspi.aims.store.Store;
 
 import javax.swing.*;
@@ -136,15 +133,20 @@ public class StoreManagerScreen extends JFrame{
         Book book1 = new Book("The Exorcist", "Novel", 21.68f, "William Peter Blatty");
 
         //Initialize Store
-//        aStore.addMedia(dvd1);
-//        aStore.addMedia(dvd2);
-//        aStore.addMedia(dvd3);
-//        aStore.addMedia(dvd5);
+        aStore.addMedia(dvd1);
+        aStore.addMedia(dvd2);
+        aStore.addMedia(dvd3);
+        aStore.addMedia(dvd5);
         aStore.addMedia(dvd6);
         aStore.addMedia(dvd7);
         aStore.addMedia(cd1);
         aStore.addMedia(cd2);
         aStore.addMedia(book1);
+
+        Track track1 = new Track("hiten", 300);
+        Track track2 = new Track("korosazu", 400);
+        cd1.addTrack(track1);
+        cd1.addTrack(track2);
 
         new StoreManagerScreen(aStore);
         

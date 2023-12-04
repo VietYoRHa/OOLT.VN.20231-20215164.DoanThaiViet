@@ -17,10 +17,19 @@ public class Track implements Playable{
         return length;
     }
 
+//    @Override
+//    public Object play(){
+//        System.out.println("Playing track: " + this.title);
+//        System.out.println("Track length: " + this.length + " seconds");
+//        return null;
+//    }
+
     @Override
-    public void play(){
-        System.out.println("Playing track: " + this.title);
-        System.out.println("Track length: " + this.length + " seconds");
+    public String play() {
+        StringBuilder info = new StringBuilder();
+        info.append("Playing track: ").append(this.title).append("\n");
+        info.append("Track length: ").append(this.length).append(" seconds");
+        return info.toString();
     }
 
     @Override

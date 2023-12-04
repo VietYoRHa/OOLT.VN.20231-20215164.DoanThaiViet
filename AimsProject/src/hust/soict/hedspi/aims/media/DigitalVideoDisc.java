@@ -1,5 +1,7 @@
 package hust.soict.hedspi.aims.media;
 
+import hust.soict.hedspi.aims.screen.manager.PlayerDialog;
+
 public class DigitalVideoDisc extends Disc implements Playable{
     private String director;
 
@@ -22,10 +24,23 @@ public class DigitalVideoDisc extends Disc implements Playable{
         return this.getId() + ". DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + this.director + " - " + this.getLength() + ": " + this.getCost() + "$";
     }
 
+//    @Override
+//    public void play(){
+//        System.out.println("Playing DVD: " + this.getTitle());
+//        System.out.println("Director: " + this.director);
+//        System.out.println("DVD length: " + this.getLength() + " minutes");
+//    }
+
     @Override
-    public void play(){
-        System.out.println("Playing DVD: " + this.getTitle());
-        System.out.println("Director: " + this.director);
-        System.out.println("DVD length: " + this.getLength() + " minutes");
+    public Object play() {
+        StringBuilder info = new StringBuilder();
+        info.append("Playing DVD: ").append(this.getTitle()).append("\n");
+        info.append("Director: ").append(this.director).append("\n");
+        info.append("Length: ").append(this.getLength()).append(" minutes\n");
+        info.append("Category: ").append(this.getCategory()).append("\n");
+
+        PlayerDialog dialog = new PlayerDialog(null, "DVD Player", true);
+        dialog.showInfo(info.toString());
+        return null;
     }
 }
