@@ -3,6 +3,7 @@ package hust.soict.hedspi.aims;
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.*;
 import hust.soict.hedspi.aims.store.Store;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -16,7 +17,7 @@ public class Aims {
         int userLength;
         float userCost;
         int exitFlag = 0;
-        ArrayList<Media> items;
+        ObservableList<Media> items;
 
         //Create a store
         Store aStore = new Store();
