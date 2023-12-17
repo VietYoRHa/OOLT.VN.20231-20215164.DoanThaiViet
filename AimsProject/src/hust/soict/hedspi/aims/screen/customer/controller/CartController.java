@@ -2,6 +2,9 @@ package hust.soict.hedspi.aims.screen.customer.controller;
 
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.Media;
+import hust.soict.hedspi.aims.media.Playable;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -47,7 +50,8 @@ public class CartController {
 
     @FXML
     void btnRemovePressed(ActionEvent event) {
-
+        Media media = tblMedia.getSelectionModel().getSelectedItem();
+        cart.removeMedia(media);
     }
 
     @FXML
@@ -64,6 +68,30 @@ public class CartController {
         if(cart.getItemsOrdered() != null)
             tblMedia.setItems(cart.getItemsOrdered());
         costLabel.setText(cart.totalCost() + " $");
+
+        btnPlay.setVisible(false);
+        btnRemove.setVisible(false);
+
+        tblMedia.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Media>() {
+            @Override
+            public void changed(ObservableValue<? extends Media> observable, Media oldValue, Media newValue) {
+                updateButtonBar(newValue);
+            }
+        });
+    }
+
+    void updateButtonBar(Media media){
+        if (media == null) {
+            btnPlay.setVisible(false);
+            btnRemove.setVisible(false);
+        } else {
+            btnRemove.setVisible(true);
+            if (media instanceof Playable){
+                btnPlay.setVisible(true);
+            } else {
+                btnPlay.setVisible(false);
+            }
+        }
     }
 
     private Cart cart;
