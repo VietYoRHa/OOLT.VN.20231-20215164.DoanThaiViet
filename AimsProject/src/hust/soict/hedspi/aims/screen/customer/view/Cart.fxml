@@ -56,7 +56,7 @@
                   <RadioButton mnemonicParsing="false" text="By Title" toggleGroup="$filterCategory" />
                </children>
             </HBox>
-            <TableView fx:id="tblMedia" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="tblMedia">
                <placeholder>
                   <Label text="Cart is empty" />
                </placeholder>
@@ -75,7 +75,7 @@
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets top="10.0" />
+                  <Insets top="20.0" />
                </padding>
                <children>
                   <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayPressed" prefWidth="60.0" text="Play" />
@@ -89,7 +89,7 @@
       </VBox>
    </center>
    <bottom>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="149.0" prefWidth="1024.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
@@ -109,6 +109,9 @@
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
             </Button>
          </children>
       </VBox>
