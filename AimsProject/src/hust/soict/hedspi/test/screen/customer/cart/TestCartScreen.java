@@ -5,7 +5,7 @@ import hust.soict.hedspi.aims.media.Book;
 import hust.soict.hedspi.aims.media.CompactDisc;
 import hust.soict.hedspi.aims.media.DigitalVideoDisc;
 import hust.soict.hedspi.aims.screen.customer.controller.CartController;
-import hust.soict.hedspi.aims.screen.customer.controller.ViewStoreController;
+import hust.soict.hedspi.aims.store.Store;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,12 +14,13 @@ import javafx.stage.Stage;
 
 public class TestCartScreen extends Application {
     private static Cart cart;
+    private static Store store = new Store();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         final String CART_FXML_FILE_PATH = "/hust/soict/hedspi/aims/screen/customer/view/Cart.fxml";
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CART_FXML_FILE_PATH));
-        CartController cartController = new CartController(cart);
+        CartController cartController = new CartController(store, cart);
         fxmlLoader.setController(cartController);
         Parent root = fxmlLoader.load();
 
