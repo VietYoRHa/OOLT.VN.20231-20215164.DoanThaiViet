@@ -37,12 +37,12 @@ public class CartTest {
         System.out.println();
 
         //Test the search method
-        cart.serachByID(1);
-        cart.serachByID(6);
-        cart.serachByTitle("star wars");
-        cart.serachByTitle("morbius");
-        cart.serachByTitle("rurouni kenshin original soundtrack");
-        cart.serachByTitle("the exorcist");
+        cart.searchByID(1);
+        cart.searchByID(6);
+        cart.searchByTitle("star wars");
+        cart.searchByTitle("morbius");
+        cart.searchByTitle("rurouni kenshin original soundtrack");
+        cart.searchByTitle("the exorcist");
 
         //Test sortByTitle method
         System.out.println();

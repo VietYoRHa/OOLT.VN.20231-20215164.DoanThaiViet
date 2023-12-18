@@ -272,12 +272,12 @@ public class Aims {
                                 System.out.print("Enter ID: ");
                                 userInputID = scanner.nextInt();
                                 scanner.nextLine();
-                                aCart.serachByID(userInputID);
+                                aCart.searchByID(userInputID);
                             }
                             if (userOption == 2){
                                 System.out.print("Enter title: ");
                                 userString = scanner.nextLine();
-                                aCart.serachByTitle(userString);
+                                aCart.searchByTitle(userString);
                             }
                             if (userOption == 0) continue;
                         }

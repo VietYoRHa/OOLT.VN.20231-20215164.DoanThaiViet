@@ -55,7 +55,7 @@ public class Cart {
         }
     }
 
-    public void serachByID(int id){
+    public void searchByID(int id){
         boolean flag = false;
         for (Media media : itemsOrdered){
             if (media.isMatch(id)){
@@ -66,7 +66,7 @@ public class Cart {
         if (!flag) System.out.println("No match found !");
     }
 
-    public void serachByTitle(String title){
+    public void searchByTitle(String title){
         boolean flag = false;
         for (Media media : itemsOrdered){
             if (media.isMatch(title)){
