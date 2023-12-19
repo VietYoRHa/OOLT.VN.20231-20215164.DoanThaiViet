@@ -17,6 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class CartController {
@@ -63,14 +64,27 @@ public class CartController {
     private TextField tfFilter;
 
     @FXML
-    void btnPlayPressed(ActionEvent event) {
+    void btnPlaceOrderPressed(ActionEvent event) {
+        if(cart.getItemsOrdered().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Cannot order because cart is empty.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null,  "Order is created !", "Success", JOptionPane.INFORMATION_MESSAGE);
+            cart.getItemsOrdered().clear();
+            costLabel.setText("0.0 $");
+        }
+    }
 
+    @FXML
+    void btnPlayPressed(ActionEvent event) {
+        Media media = tblMedia.getSelectionModel().getSelectedItem();
+        ((Playable) media).play();
     }
 
     @FXML
     void btnRemovePressed(ActionEvent event) {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
         cart.removeMedia(media);
+        costLabel.setText(cart.totalCost() + " $");
     }
 
     @FXML

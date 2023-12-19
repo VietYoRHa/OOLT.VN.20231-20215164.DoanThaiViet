@@ -65,6 +65,7 @@ public class CompactDisc extends Disc implements Playable{
         info.append("Playing CD: ").append(this.getTitle()).append("\n");
         info.append("Director: ").append(this.artist).append("\n");
         info.append("Total length: ").append(this.getLength()).append(" seconds\n");
+        info.append("---------------------------------------------\n");
 
         for (Track track : tracks) {
             info.append(track.play()).append("\n");

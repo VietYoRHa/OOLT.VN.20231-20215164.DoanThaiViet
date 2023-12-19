@@ -4,6 +4,7 @@ import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.Book;
 import hust.soict.hedspi.aims.media.CompactDisc;
 import hust.soict.hedspi.aims.media.DigitalVideoDisc;
+import hust.soict.hedspi.aims.media.Track;
 import hust.soict.hedspi.aims.screen.customer.controller.ViewStoreController;
 import hust.soict.hedspi.aims.store.Store;
 import javafx.application.Application;
@@ -35,13 +36,21 @@ public class TestViewStoreScreen extends Application {
         //Create Media objects
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", 19.95f, 87, "Roger Allers");
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", 24.95f, 87, "George Lucas");
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f, 128, "Guy Ritchie");
         DigitalVideoDisc dvd4 = new DigitalVideoDisc("Turbo", "Animation", 12.29f, 96, "David Soren");
         DigitalVideoDisc dvd5 = new DigitalVideoDisc("Kung Fu Panda", "Animation", 14.99f, 92, "John Stevenson");
         DigitalVideoDisc dvd6 = new DigitalVideoDisc("Rurouni Kenshin: The Beginning", "Action", 29.23f, 134, "Keishi Otomo");
         DigitalVideoDisc dvd7 = new DigitalVideoDisc("The Exorcist", "Horror", 35f, 122, "William Friedkin");
         CompactDisc cd1 = new CompactDisc("Rurouni Kenshin Original Soundtrack", "Live Action", 28f, "Naoki Sato");
         Book book1 = new Book("The Exorcist", "Novel", 21.68f, "William Peter Blatty");
+
+        //Create Tracks
+        Track track1 = new Track("Hiten", 303);
+        Track track2 = new Track("Korosazu", 350);
+        Track track3 = new Track("Sakabato", 159);
+        cd1.addTrack(track1);
+        cd1.addTrack(track2);
+        cd1.addTrack(track3);
 
         //Initialize Store
         store.addMedia(dvd1);
@@ -55,15 +64,15 @@ public class TestViewStoreScreen extends Application {
         store.addMedia(book1);
 
         //Add to Cart
-        cart.addMedia(dvd1);
-        cart.addMedia(dvd2);
-        cart.addMedia(dvd3);
-        cart.addMedia(dvd4);
-        cart.addMedia(dvd5);
-        cart.addMedia(dvd6);
-        cart.addMedia(dvd7);
-        cart.addMedia(cd1);
-        cart.addMedia(book1);
+//        cart.addMedia(dvd1);
+//        cart.addMedia(dvd2);
+//        cart.addMedia(dvd3);
+//        cart.addMedia(dvd4);
+//        cart.addMedia(dvd5);
+//        cart.addMedia(dvd6);
+//        cart.addMedia(dvd7);
+//        cart.addMedia(cd1);
+//        cart.addMedia(book1);
 
         launch(args);
     }
