@@ -1,6 +1,7 @@
 package hust.soict.hedspi.aims;
 
 import hust.soict.hedspi.aims.cart.Cart;
+import hust.soict.hedspi.aims.exception.PlayerException;
 import hust.soict.hedspi.aims.media.*;
 import hust.soict.hedspi.aims.store.Store;
 import javafx.collections.ObservableList;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Aims {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws PlayerException {
         Scanner scanner = new Scanner(System.in);
         int userOption;
         int userInputID;

@@ -1,8 +1,10 @@
 package hust.soict.hedspi.aims.media;
 
+import hust.soict.hedspi.aims.exception.PlayerException;
 import hust.soict.hedspi.aims.screen.manager.PlayerDialog;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class CompactDisc extends Disc implements Playable{
@@ -60,19 +62,35 @@ public class CompactDisc extends Disc implements Playable{
 //    }
 
     @Override
-    public Object play() {
-        StringBuilder info = new StringBuilder();
-        info.append("Playing CD: ").append(this.getTitle()).append("\n");
-        info.append("Director: ").append(this.artist).append("\n");
-        info.append("Total length: ").append(this.getLength()).append(" seconds\n");
-        info.append("---------------------------------------------\n");
+    public Object play() throws PlayerException {
+        if (this.getLength() > 0) {
+            StringBuilder info = new StringBuilder();
+            info.append("Playing CD: ").append(this.getTitle()).append("\n");
+            info.append("Director: ").append(this.artist).append("\n");
+            info.append("Total length: ").append(this.getLength()).append(" seconds\n");
+            info.append("---------------------------------------------\n");
 
-        for (Track track : tracks) {
-            info.append(track.play()).append("\n");
+            for (Track track : tracks) {
+                info.append(track.play()).append("\n");
+            }
+
+            PlayerDialog dialog = new PlayerDialog(null, "CD Player", true);
+            dialog.showInfo(info.toString());
+
+            java.util.Iterator iter = tracks.iterator();
+            Track nextTrack;
+            while(iter.hasNext()){
+                nextTrack = (Track) iter.next();
+                try{
+                    nextTrack.play();
+                } catch (PlayerException e){
+                    throw e;
+                }
+            }
+
+            return null;
+        } else {
+            throw new PlayerException("ERROR: CD length is non-positive!");
         }
-
-        PlayerDialog dialog = new PlayerDialog(null, "CD Player", true);
-        dialog.showInfo(info.toString());
-        return null;
     }
 }

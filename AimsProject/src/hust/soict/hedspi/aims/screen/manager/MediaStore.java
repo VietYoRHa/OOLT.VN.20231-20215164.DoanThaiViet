@@ -1,5 +1,6 @@
 package hust.soict.hedspi.aims.screen.manager;
 
+import hust.soict.hedspi.aims.exception.PlayerException;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
 
@@ -30,7 +31,11 @@ public class MediaStore extends JPanel {
             playButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    ((Playable) media).play();
+                    try {
+                        ((Playable) media).play();
+                    } catch (PlayerException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             });
         }
