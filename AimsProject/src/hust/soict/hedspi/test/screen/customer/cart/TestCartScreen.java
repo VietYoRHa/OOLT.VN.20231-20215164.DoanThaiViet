@@ -1,14 +1,37 @@
-package hust.soict.hedspi.test.cart;
+package hust.soict.hedspi.test.screen.customer.cart;
 
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.Book;
 import hust.soict.hedspi.aims.media.CompactDisc;
 import hust.soict.hedspi.aims.media.DigitalVideoDisc;
+import hust.soict.hedspi.aims.screen.customer.controller.CartController;
+import hust.soict.hedspi.aims.store.Store;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class CartTest {
+public class TestCartScreen extends Application {
+    private static Cart cart;
+    private static Store store = new Store();
+
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        final String CART_FXML_FILE_PATH = "/hust/soict/hedspi/aims/screen/customer/view/Cart.fxml";
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CART_FXML_FILE_PATH));
+        CartController cartController = new CartController(store, cart);
+        fxmlLoader.setController(cartController);
+        Parent root = fxmlLoader.load();
+
+        primaryStage.setTitle("Cart");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
     public static void main(String[] args) {
         //Create a new cart
-        Cart cart = new Cart();
+        cart = new Cart();
 
         //Create new dvd objects and add them to the cart
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", 19.95f, 87, "Roger Allers");
@@ -32,26 +55,6 @@ public class CartTest {
         Book book1 = new Book("The Exorcist", "Novel", 21.68f, "William Peter Blatty");
         cart.addMedia(book1);
 
-        //Test the print method
-        cart.print();
-        System.out.println();
-
-        //Test the search method
-        cart.searchByID(1);
-        cart.searchByID(6);
-        cart.searchByTitle("star wars");
-        cart.searchByTitle("morbius");
-        cart.searchByTitle("rurouni kenshin original soundtrack");
-        cart.searchByTitle("the exorcist");
-
-        //Test sortByTitle method
-        System.out.println();
-        cart.sortByTitle();
-        cart.print();
-
-        //Test sortByCost method
-        System.out.println();
-        cart.sortByCost();
-        cart.print();
+        launch(args);
     }
 }

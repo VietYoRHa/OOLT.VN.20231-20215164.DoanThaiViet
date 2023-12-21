@@ -1,15 +1,17 @@
 package hust.soict.hedspi.aims.cart;
 
 import hust.soict.hedspi.aims.media.Media;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Cart {
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
     int sequenceNum;
 
-    public ArrayList<Media> getItemsOrdered() {
+    public ObservableList<Media> getItemsOrdered() {
         return itemsOrdered;
     }
 
@@ -53,7 +55,7 @@ public class Cart {
         }
     }
 
-    public void serachByID(int id){
+    public void searchByID(int id){
         boolean flag = false;
         for (Media media : itemsOrdered){
             if (media.isMatch(id)){
@@ -64,7 +66,7 @@ public class Cart {
         if (!flag) System.out.println("No match found !");
     }
 
-    public void serachByTitle(String title){
+    public void searchByTitle(String title){
         boolean flag = false;
         for (Media media : itemsOrdered){
             if (media.isMatch(title)){
