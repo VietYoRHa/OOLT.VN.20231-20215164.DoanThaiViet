@@ -1,6 +1,9 @@
 package hust.soict.hedspi.aims.media;
 
+import hust.soict.hedspi.aims.exception.PlayerException;
 import hust.soict.hedspi.aims.screen.manager.PlayerDialog;
+
+import javax.swing.*;
 
 public class DigitalVideoDisc extends Disc implements Playable{
     private String director;
@@ -32,15 +35,24 @@ public class DigitalVideoDisc extends Disc implements Playable{
 //    }
 
     @Override
-    public Object play() {
-        StringBuilder info = new StringBuilder();
-        info.append("Playing DVD: ").append(this.getTitle()).append("\n");
-        info.append("Director: ").append(this.director).append("\n");
-        info.append("Length: ").append(this.getLength()).append(" minutes\n");
-        info.append("Category: ").append(this.getCategory()).append("\n");
+    public Object play() throws PlayerException {
+        try {
+            if (this.getLength() > 0) {
+                StringBuilder info = new StringBuilder();
+                info.append("Playing DVD: ").append(this.getTitle()).append("\n");
+                info.append("Director: ").append(this.director).append("\n");
+                info.append("Length: ").append(this.getLength()).append(" minutes\n");
+                info.append("Category: ").append(this.getCategory()).append("\n");
 
-        PlayerDialog dialog = new PlayerDialog(null, "DVD Player", true);
-        dialog.showInfo(info.toString());
-        return null;
+                PlayerDialog dialog = new PlayerDialog(null, "DVD Player", true);
+                dialog.showInfo(info.toString());
+                return null;
+            } else {
+                throw new PlayerException("ERROR: DVD length is non-positive!");
+            }
+        } catch (PlayerException exc){
+            JOptionPane.showMessageDialog(null, "ERROR: DVD length is non-positive!", "Illegal DVD length", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
     }
 }
