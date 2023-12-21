@@ -46,10 +46,10 @@ public class TestCartScreen extends Application {
         DigitalVideoDisc dvd4 = new DigitalVideoDisc("Kung Fu Panda", "Animation", 18.99f, 92, "John Stevenson");
         cart.addMedia(dvd4);
 
-        CompactDisc cd1 = new CompactDisc("Rurouni Kenshin Original Soundtrack", "Live Action", 28f, "Naoki Sato");
+        CompactDisc cd1 = new CompactDisc("Rurouni Kenshin Original Soundtrack", "Live Action", 28.0f, "Naoki Sato");
         cart.addMedia(cd1);
 
-        CompactDisc cd2 = new CompactDisc("Rurouni Kenshin Original Soundtrack", "Anime", 25f, "Noriyuki Asakura");
+        CompactDisc cd2 = new CompactDisc("Rurouni Kenshin Original Soundtrack", "Anime", 25.0f, "Noriyuki Asakura");
         cart.addMedia(cd2);
 
         Book book1 = new Book("The Exorcist", "Novel", 21.68f, "William Peter Blatty");
