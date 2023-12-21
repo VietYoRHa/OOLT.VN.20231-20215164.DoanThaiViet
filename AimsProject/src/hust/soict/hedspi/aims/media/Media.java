@@ -67,6 +67,6 @@ public class Media {
         if (obj == null || getClass() != obj.getClass())
             return false;
         Media otherMedia = (Media) obj;
-        return title != null ? title.equals(otherMedia.title) : otherMedia.title == null;
+        return title != null ? title.equals(otherMedia.title) && (cost == otherMedia.cost) : otherMedia.title == null && otherMedia.cost == 0;
     }
 }
